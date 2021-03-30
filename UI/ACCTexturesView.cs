@@ -464,7 +464,7 @@ namespace CM3D2.AlwaysColorChangeEx.Plugin.UI {
                     texName = filename.Substring(0, filename.Length - 4);
                 }
                 LogUtil.Debug("ChangeTex:", filename, ", propName:", propName);
-                holder.CurrentMaid.body0.ChangeTex(holder.CurrentSlot.Name, matNo1, propName, filename, null, MaidParts.PARTS_COLOR.NONE);
+                holder.CurrentMaid.body0.ChangeTex(holder.CurrentSlot.Name, 0,matNo1, propName, filename, null, MaidParts.PARTS_COLOR.NONE);
 
                 // ChangeTexは、Materialからロードした時と違い、nameにファイル名が設定されてしまうため、
                 // 拡張子を除いた名前を再設定

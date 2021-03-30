@@ -1185,7 +1185,7 @@ namespace CM3D2.AlwaysColorChangeEx.Plugin {
             foreach (var key in keys) {
                 delNodeDic[key] = true;
             }
-            foreach(var slot in holder.CurrentMaid.body0.goSlot) {
+            foreach(var slot in holder.CurrentMaid.body0.goSlot.GetListParents()) {
                 if (slot.obj == null || !slot.boVisible) continue;
 
                 var slotNodes = slot.m_dicDelNodeBody;

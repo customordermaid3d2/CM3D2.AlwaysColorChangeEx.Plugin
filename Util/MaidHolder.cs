@@ -203,7 +203,7 @@ namespace CM3D2.AlwaysColorChangeEx.Plugin.Util {
             foreach (var entry in dDelNodes) {
                 var nodeItem = ACConstants.NodeNames[entry.Key];
                 if (entry.Value) { // 
-                    foreach (var slot in maid.body0.goSlot) {
+                    foreach (var slot in maid.body0.goSlot.GetListParents()) {
                         if (slot.obj == null) continue;
                         // 強制表示
                         if (slot.m_dicDelNodeBody.ContainsKey(entry.Key)) {
@@ -248,7 +248,7 @@ namespace CM3D2.AlwaysColorChangeEx.Plugin.Util {
         public void SetDelNodesForce(Maid maid, Dictionary<string, bool> dDelNodes, bool bApply) {
             if (!dDelNodes.Any()) return;
 
-            foreach (var slot in maid.body0.goSlot) {
+            foreach (var slot in maid.body0.goSlot.GetListParents()) {
                 if (slot.obj == null) continue;
                 slot.boVisible = true;
                 foreach (var entry in dDelNodes) {
@@ -297,7 +297,7 @@ namespace CM3D2.AlwaysColorChangeEx.Plugin.Util {
                 } else {
                     // 全スロットから削除する
                     //slot.listMaskSlot.Remove((int)pair.Key);
-                    foreach (var tBodySkin in maid.body0.goSlot) {
+                    foreach (var tBodySkin in maid.body0.goSlot.GetListParents()) {
                         tBodySkin.listMaskSlot.Remove((int)pair.Key);
                     }
                 }
@@ -331,7 +331,7 @@ namespace CM3D2.AlwaysColorChangeEx.Plugin.Util {
                     break;
                 case SlotState.Displayed:
                     // 全スロットから削除する
-                    foreach (var tBodySkin in maid.body0.goSlot) {
+                    foreach (var tBodySkin in maid.body0.goSlot.GetListParents()) {
                         tBodySkin.listMaskSlot.Remove((int)slotItem.id);
                     }
 
@@ -344,14 +344,14 @@ namespace CM3D2.AlwaysColorChangeEx.Plugin.Util {
         // 表示状態を変更するのみ。
         // フラグを適用することで元に戻せる
         public void SetAllVisible() {
-            foreach (var tBodySkin in CurrentMaid.body0.goSlot) {
+            foreach (var tBodySkin in CurrentMaid.body0.goSlot.GetListParents()) {
                 tBodySkin.boVisible = true;
             }
         }
 
         // マスク情報をすべてクリアして反映
         public void ClearMasks() {
-            foreach (var tBodySkin in CurrentMaid.body0.goSlot) {
+            foreach (var tBodySkin in CurrentMaid.body0.goSlot.GetListParents()) {
                 tBodySkin.boVisible = true;
                 tBodySkin.listMaskSlot.Clear();
             }

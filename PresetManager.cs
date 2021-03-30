@@ -264,7 +264,7 @@ namespace CM3D2.AlwaysColorChangeEx.Plugin {
                                 // if (!filename.EndsWith(FileConst.EXT_TEXTURE, StringComparison.OrdinalIgnoreCase)) {
                                 // ファイルが存在する場合にのみ適用
                                 if (_fileUtil.Exists(filename)) {
-                                    maid.body0.ChangeTex(slotName, matNo, texInfo.propName, filename, null);
+                                    maid.body0.ChangeTex(slotName,0, matNo, texInfo.propName, filename, null);
 
                                     // ChangeTexは、nameにファイル名が設定されてしまうため、拡張子を除いた名前を再設定
                                     var changedTex = m.GetTexture(texInfo.propName);
